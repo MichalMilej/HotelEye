@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelEye", "HotelEye\HotelEye.csproj", "{F6D949B6-0441-4570-AAFC-7B2752C5B92C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelEye.UnitTests", "HotelEye.UnitTests\HotelEye.UnitTests.csproj", "{A0ADF3EE-BE96-4014-89C3-AC4E061BC96E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6D949B6-0441-4570-AAFC-7B2752C5B92C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6D949B6-0441-4570-AAFC-7B2752C5B92C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6D949B6-0441-4570-AAFC-7B2752C5B92C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6D949B6-0441-4570-AAFC-7B2752C5B92C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0ADF3EE-BE96-4014-89C3-AC4E061BC96E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0ADF3EE-BE96-4014-89C3-AC4E061BC96E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0ADF3EE-BE96-4014-89C3-AC4E061BC96E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0ADF3EE-BE96-4014-89C3-AC4E061BC96E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A7FFE14C-068C-42B7-890B-75A71053D97C}
+	EndGlobalSection
+EndGlobal
