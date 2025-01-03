@@ -14,7 +14,7 @@ namespace HotelEye
 
         public override DateOnly Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
-            if (reader.TokenType == JsonTokenType.String && DateOnly.TryParseExact(reader.GetString(), _format, out var date))
+            if (reader.TokenType == JsonTokenType.String && DateOnly.TryParseExact(reader.GetString(), _format, out DateOnly date))
             {
                 return date;
             }

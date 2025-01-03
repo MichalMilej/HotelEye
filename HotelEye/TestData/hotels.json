@@ -51,10 +51,6 @@
     "rooms": [
       {
         "roomType": "SGL",
-        "roomId": "101"
-      },
-      {
-        "roomType": "SGL",
         "roomId": "102"
       },
       {
@@ -68,10 +64,6 @@
       {
         "roomType": "TPL",
         "roomId": "301"
-      },
-      {
-        "roomType": "TPL",
-        "roomId": "302"
       }
     ]
   }

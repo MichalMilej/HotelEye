@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace HotelEye
+namespace HotelEye.Model
 {
     public class Hotel
     {
@@ -23,7 +23,8 @@ namespace HotelEye
 
         public class Room
         {
-            public string RoomType { get; set; }
+            [JsonPropertyName("roomType")]
+            public string RoomTypeCode { get; set; }
             public string RoomId { get; set; }
         }
     }
