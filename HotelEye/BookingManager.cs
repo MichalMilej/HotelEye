@@ -18,9 +18,14 @@ namespace HotelEye
                 ?? throw new KeyNotFoundException($"Hotel with id {hotelId} not found.");
 
             int matchingRooms = hotel.Rooms.Count(r => r.RoomTypeCode == roomTypeCode);
-            int availableRooms = matchingRooms;
+            if (matchingRooms == 0)
+            {
+                throw new KeyNotFoundException($"Rooms with type {roomTypeCode} not found in hotel {hotelId}.");
+            }
 
+            int availableRooms = matchingRooms;
             var hotelBookings = Bookings.FindAll(b => b.HotelId == hotelId);
+
             foreach (Booking booking in hotelBookings)
             {
                 if (booking.RoomTypeCode != roomTypeCode)
