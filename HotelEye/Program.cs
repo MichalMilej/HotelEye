@@ -23,7 +23,7 @@ namespace HotelEye
                 return;
             }
 
-            BookingManager bookingManager = new BookingManager(hotels, bookings);
+            BookingManager bookingManager = new(hotels, bookings);
 
             while (true)
             {
@@ -32,43 +32,18 @@ namespace HotelEye
                 {
                     break;
                 }
-                Regex regexOneDate = new Regex(@"Availability\(([^,]+),(\s*\d{8}\s*),([^)]+)\)");
-                Regex regexDateRange = new Regex(@"Availability\(([^,]+),(\s*\d{8}\s*)-(\s*\d{8}\s*),([^\)]+)\)");
-
-                Match resultSingleDate = regexOneDate.Match(userInput);
-                Match resultDateRange = regexDateRange.Match(userInput);
-
-                string inputHotelId;
-                DateOnly inputArrivalDate;
-                DateOnly inputDepartureDate;
-                string inputRoomTypeCode;
-
-                if (resultSingleDate.Success)
-                {
-                    inputHotelId = resultSingleDate.Groups[1].Value.Trim();
-                    inputArrivalDate = DateOnly.ParseExact(resultSingleDate.Groups[2].Value.Trim(), "yyyyMMdd");
-                    inputDepartureDate = inputArrivalDate.AddDays(1);
-                    inputRoomTypeCode = resultSingleDate.Groups[3].Value.Trim();
-                }
-                else if (resultDateRange.Success)
-                {
-                    inputHotelId = resultDateRange.Groups[1].Value.Trim();
-                    inputArrivalDate = DateOnly.ParseExact(resultDateRange.Groups[2].Value.Trim(), "yyyyMMdd");
-                    inputDepartureDate = DateOnly.ParseExact(resultDateRange.Groups[3].Value.Trim(), "yyyyMMdd");
-                    inputRoomTypeCode = resultDateRange.Groups[4].Value.Trim();
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input.");
-                    continue;
-                }
 
                 try
                 {
-                    int availableRooms = bookingManager.CheckAvailability(inputHotelId, inputArrivalDate, inputDepartureDate,  inputRoomTypeCode);
+                    AvailabilityRequest availabilityRequest = new(userInput);
+                    int availableRooms = bookingManager.CheckAvailability(availabilityRequest.HotelId,
+                        availabilityRequest.ArrivalDate,
+                        availabilityRequest.DepartureDate,
+                        availabilityRequest.RoomTypeCode);
+
                     Console.WriteLine(availableRooms);
                 }
-                catch (KeyNotFoundException e)
+                catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
                 }
