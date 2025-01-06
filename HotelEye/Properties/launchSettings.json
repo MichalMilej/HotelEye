@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "HotelEye": {
+      "commandName": "Project",
+      "commandLineArgs": "--bookings ../../../TestData/bookings.json --hotels \r\n../../../TestData/hotels.json"
+    }
+  }
+}

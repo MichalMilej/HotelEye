@@ -9,15 +9,22 @@ namespace HotelEye
     {
         static void Main(string[] args)
         {
-            string hotelsJsonFilePath = "../../../TestData/hotels.json";
-            string bookingsJsonFilePath = "../../../TestData/bookings.json";
+            if (args.Length != 4)
+            {
+                Console.WriteLine("Invalid number of program parameters.");
+                return;
+            }
 
-            JsonFileReader jsonFileReader = new JsonFileReader(new DateOnlyJsonConverter());
+            int hotelsPathArgIndex = args[0].Equals("--hotels") ? 1 : 3;
+            int bookingsPathArgIndex = args[0].Equals("--bookings") ? 1 : 3;
 
-            List<Hotel> hotels = jsonFileReader.ReadFromFile<Hotel>(hotelsJsonFilePath);
-            List<Booking> bookings = jsonFileReader.ReadFromFile<Booking>(bookingsJsonFilePath);
+            JsonFileReader jsonFileReader = new(new DateOnlyJsonConverter());
 
-            if (hotels.Count == 0 || bookings.Count == 0)
+            List<Hotel> hotels = jsonFileReader.ReadFromFile<Hotel>(args[hotelsPathArgIndex]);
+            List<Booking> bookings = jsonFileReader.ReadFromFile<Booking>(args[bookingsPathArgIndex]);
+
+            if (!(hotels.Count != 0 && hotels.All(h => !string.IsNullOrEmpty(h.Id)
+                && bookings.Count != 0 && bookings.All(b => !string.IsNullOrEmpty(b.HotelId)))))
             {
                 Console.WriteLine("Failed to read data from files.");
                 return;
@@ -30,7 +37,7 @@ namespace HotelEye
                 string userInput = Console.ReadLine() ?? "";
                 if (string.IsNullOrEmpty(userInput))
                 {
-                    break;
+                    return;
                 }
 
                 try
