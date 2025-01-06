@@ -32,7 +32,7 @@ namespace HotelEye
 
             while (true)
             {
-                Console.WriteLine("Enter command or press enter to exit. ");
+                Console.WriteLine("Enter command (ex. \"Availability(H1, 20250101-20250105, SGL)\") or press enter to exit: ");
                 string userInput = Console.ReadLine() ?? "";
                 if (string.IsNullOrEmpty(userInput))
                 {
