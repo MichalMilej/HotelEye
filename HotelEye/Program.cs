@@ -1,6 +1,4 @@
-﻿using System.Text.Json;
-using System.Text.RegularExpressions;
-using HotelEye.HotelEye;
+﻿using HotelEye.HotelEye;
 using HotelEye.Model;
 
 namespace HotelEye
@@ -34,6 +32,7 @@ namespace HotelEye
 
             while (true)
             {
+                Console.WriteLine("Enter command or press enter to exit. ");
                 string userInput = Console.ReadLine() ?? "";
                 if (string.IsNullOrEmpty(userInput))
                 {
